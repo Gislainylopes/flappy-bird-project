@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject pipes, source;
     private float interval= 2f;
     private bool started;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -37,5 +38,6 @@ public class GameController : MonoBehaviour
             duck.SetActive(true);
             started = true;
         }
+        
     }
 }

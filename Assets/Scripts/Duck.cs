@@ -6,6 +6,7 @@ public class Duck : MonoBehaviour
 {
     private bool jumping;
     private Rigidbody2D rb;
+    private bool finish;
 
     [SerializeField] private float jumpSpeed;
 
@@ -13,10 +14,20 @@ public class Duck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        finish = false;
         jumping = false;
         rb = GetComponent<Rigidbody2D>();
     }
 
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "pipes")
+        {
+            Debug.Log("Game Over!");
+            finish = true;
+        }
+    }
+ 
     // Update is called once per frame
     void Update()
     {
