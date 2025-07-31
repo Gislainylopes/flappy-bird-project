@@ -7,15 +7,19 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject message, duck;
     [SerializeField] private GameObject pipes, source;
     private float interval= 2f;
+    private bool started;
 
     // Start is called before the first frame update
     void Start()
     {
+        starded = false;
         InvokeRepeating("SpawnPipes", 0f, interval);
     }
 
     private void SpawnPipes()
     {
+        if (!started) return;
+
         Instantiate(
             pipes,
             source.transform.position,
@@ -31,6 +35,7 @@ public class GameController : MonoBehaviour
             // message.SetActive(true);
             Destroy(message);
             duck.SetActive(true);
+            started = true;
         }
     }
 }
