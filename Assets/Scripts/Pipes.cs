@@ -13,11 +13,15 @@ public class Pipes : MonoBehaviour
     void Start()
     {
         yVariable = Random.Range(-1, 5) < 0; //margem da variavel da altura
+        if (yVariable)
+        {
+            OscilateY();
+        }
         //altura variável dos canos
         float altura = Random.Range(minY, maxY);
         transform.position = new Vector2(transform.position.x, altura); 
     }
-
+    
     // Update is called once per frame
     void Update()
     {
