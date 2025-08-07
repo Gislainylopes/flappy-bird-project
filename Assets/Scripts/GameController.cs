@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     [SerializeField] private GameObject message, duck;
@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     private float interval = 2f;
     private bool started;
     private int score;
+    [SerializeField] private Text scoreText;
     public static GameController instance;
 
     private void Awake()
@@ -58,7 +59,7 @@ public class GameController : MonoBehaviour
     public void IncreaseScore(int score)
     {
         this.score += score;
-        Debug.Log("Score: " + this.score);
+        scoreText.text = this.score.ToString();
     }
 }
 
