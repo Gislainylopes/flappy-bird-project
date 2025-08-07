@@ -19,7 +19,7 @@ public class Duck : MonoBehaviour
         jumping = false;
         rb = GetComponent<Rigidbody2D>();
     }
- 
+
     // Update is called once per frame
     void Update()
     {
@@ -37,6 +37,14 @@ public class Duck : MonoBehaviour
         {
             rb.velocity = Vector2.up * jumpSpeed; // (0, 1) * jumpSpeed
             jumping = false;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Score"))
+        {
+            GameController.instance.IncreaseScore(1);
         }
     }
 

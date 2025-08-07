@@ -6,8 +6,9 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] private GameObject message, duck;
     [SerializeField] private GameObject pipes, source;
-    private float interval= 2f;
+    private float interval = 2f;
     private bool started;
+    private int score;
     public static GameController instance;
 
     private void Awake()
@@ -26,6 +27,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        score = 0;
         started = false;
         InvokeRepeating("SpawnPipes", 0f, interval);
     }
@@ -51,6 +53,13 @@ public class GameController : MonoBehaviour
             duck.SetActive(true);
             started = true;
         }
-        
+
+    }
+    public void IncreaseScore(int score)
+    {
+        this.score += score;
+        Debug.Log("Score: " + this.score);
     }
 }
+
+    
