@@ -48,7 +48,7 @@ public class Duck : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2d other)
+    void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("pipes") || other.gameObject.CompareTag("chão"))
         {
