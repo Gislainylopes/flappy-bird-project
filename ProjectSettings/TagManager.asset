@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Q
   - DestroyPipe
+  - LimiteSuperior
+  - finish
   layers:
   - Default
   - TransparentFX

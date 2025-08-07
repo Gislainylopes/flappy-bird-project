@@ -8,7 +8,20 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject pipes, source;
     private float interval= 2f;
     private bool started;
-    
+    public static GameController instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

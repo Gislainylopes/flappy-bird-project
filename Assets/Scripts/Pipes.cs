@@ -11,6 +11,7 @@ public class Pipes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //altura variável dos canos
         float altura = Random.Range(minY, maxY);
         transform.position = new Vector2(transform.position.x, altura); 
     }
