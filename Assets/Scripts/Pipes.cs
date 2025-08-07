@@ -21,7 +21,11 @@ public class Pipes : MonoBehaviour
         float altura = Random.Range(minY, maxY);
         transform.position = new Vector2(transform.position.x, altura); 
     }
-    
+
+    void OscilateY()
+    {
+        
+    }
     // Update is called once per frame
     void Update()
     {
