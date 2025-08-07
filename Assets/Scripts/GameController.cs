@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     [SerializeField] private GameObject message, duck;
-    [SerializeField] private GameObject pipes, source;
+    [SerializeField] private GameObject pipes, source, gameOver;
     private float interval = 2f;
     private bool started;
     private int score;
@@ -60,6 +60,11 @@ public class GameController : MonoBehaviour
     {
         this.score += score;
         scoreText.text = this.score.ToString();
+    }
+    public void GameOver()
+    {
+        gameOver.SetActive(true);
+        Time.timeScale = 0;
     }
 }
 
