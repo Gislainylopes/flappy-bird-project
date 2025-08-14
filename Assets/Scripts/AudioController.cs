@@ -18,8 +18,17 @@ public class AudioController : MonoBehaviour
     }
 
     public void PlayAudioClip(AudioClip sound, bool loop) {
-        soundSource.clip = sound;
-        soundSource.loop = loop;
-        soundSource.Play();
+        if (loop)
+        {
+            soundSource.clip = sound;
+            soundSource.loop = loop;
+            soundSource.Play();
+        }
+        else
+        {
+            soundSource.PlayOneShot(sound);
+        }
+
+
     }
 }

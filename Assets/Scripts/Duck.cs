@@ -9,6 +9,8 @@ public class Duck : MonoBehaviour
 
     [SerializeField] private float jumpSpeed;
     [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip scoreSound;
+    [SerializeField] private AudioClip dieSound;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +43,7 @@ public class Duck : MonoBehaviour
     {
         if (other.CompareTag("Score"))
         {
+            AudioController.instance.PlayAudioClip(scoreSound, false);
             GameController.instance.IncreaseScore(1);
         }
     }
@@ -49,6 +52,7 @@ public class Duck : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Pipe") || other.gameObject.CompareTag("Ground"))
         {
+            AudioController.instance.PlayAudioClip(dieSound, false);
             GameController.instance.GameOver();
         }
     }
